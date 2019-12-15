@@ -65,6 +65,9 @@ The random forest model performed the best. Precision, recall, and F1 were all s
 
     AUC: 95.84% 
 ![roc/auc](plots/rocauc.png)
+
+Words in the feature space were high up on the random forest model's list of important features.  At the top of the list is the word 'times,' perhaps due to the descriptions of popular books mentioning the book's inclusion on the New York Times beseller list. Other significant features included whether or not the book had images in it and whether or not the book was available as an e-book. 
+
 ![feature importances](plots/featureimportances.png)
 
 ## Conclusions
