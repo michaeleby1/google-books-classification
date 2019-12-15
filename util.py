@@ -76,3 +76,4 @@ def clean_df(df):
              'ratingsCount', 'averageRating', 'description']]
     df = df[(df['ratingsCount'] >= 1) & (df['year'] >= 2009)]
     return df
+
