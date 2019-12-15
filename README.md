@@ -18,7 +18,7 @@ In order to ensure that the books in my dataset each had sufficient bibliographi
 
 ## Baseline
 
-![book ratings](bookratings.png)
+![book ratings](plots/bookratings.png)
 
 The percentage of books in my dataset with a 4.5 average rating or above was 39.69%; the percentage of books below that rating was 60.31%. That means that if a person randomly guessed that a particular book was below a 4.5 average rating, he or she would have approximately a 60% chance of guessing correctly. Thus, I needed my model to be able to predict with at least ~60% accuracy if a book had above a 4.5 average rating.
 
@@ -26,7 +26,7 @@ The percentage of books in my dataset with a 4.5 average rating or above was 39.
 
 All of the features used for modeling were categorical variables. I converted the publication dates to Pandas datetime objects, extracted the month and year from them, and gave them separate columns. The reason for this is that I wanted to see if business cycles played a role in book popularity. Following this,I made a "popular authors" column, which indicated with a 0 or 1 whether or not the author of a book appeared in the dataframe more than once. I imputed genre according to the subject category used for the API call that yielded the book. I then one-hot-encoded the month, year, genre, and publisher. I did some natural language processing on the book descriptions, discussed below. 
 
-![rating by genre](ratingbygenre.png)![popular authors](popularauthors.png) 
+![rating by genre](plots/ratingbygenre.png)![popular authors](plots/popularauthors.png) 
 
 ## Natural Language Processing
 
@@ -38,7 +38,7 @@ TF-IDF is a statistical weighting measure for a word's importance with respect t
 
 I ordered the words by TF-IDF score in descending value, one-hot-encoded them, and used only the 400 most highly ranked words. 
 
-![bag of words](bagofwords.png)
+![bag of words](plots/bagofwords.png)
 
 ## Overfitting/Resampling
 
@@ -50,7 +50,7 @@ I also cut the amount of features in the model by using only 100 words.
 
 After resampling, I performed a second round of modeling. Each of the models displayed high training and testing scores that were more balanced:
 
-![model scores](traintestscores.png)
+![model scores](plots/traintestscores.png)
 
 ## Final Model
 
@@ -61,11 +61,11 @@ The random forest model performed the best. Precision, recall, and F1 were all s
     Precision: 97.82%
     Recall: 93.75%
     F1 Score: 95.74%
-![confusion matrix](confusionmatrix.png)
+![confusion matrix](plots/confusionmatrix.png)
 
     AUC: 95.84% 
-![roc/auc](rocauc.png)
-![feature importances](featureimportances.png)
+![roc/auc](plots/rocauc.png)
+![feature importances](plots/featureimportances.png)
 
 ## Conclusions
 
